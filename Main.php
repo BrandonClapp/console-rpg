@@ -1,5 +1,6 @@
 <?php
 	require_once('InputManager.php');
+	require_once('GameManager.php');
 	require_once('Player.php');
 	require_once('Monster.php');
 
@@ -7,10 +8,10 @@
 	$player = new Player($name);
 	$player->displayPlayerInfo();
 
-	InputManager::say('Welcome to the game!');
-	InputManager::say('Going into the game loop... Press Ctrl + C to exit');
+	$gameManager = new GameManager($player);
 
-	while(true) {
-		// game loop.
-	}
+	InputManager::say('Welcome to the game!');
+
+	$gameManager->start();
+	
 ?>
